@@ -1,0 +1,23 @@
+﻿@model Entreprise
+
+@if(@Model != null){
+<div class="container">
+    <h1>@Model.Nom</h1>
+    <a href="tel:@Model.ContactPhone">Nous téléphoner.</a>
+    <a href="mailto:@Model.ContactMail">Nous écrire.</a>
+    <ul>
+        @foreach (Magasin magasin in @Model.magasins)
+        {
+            <li>
+                <div>
+                    <h3>@magasin.Nom</h3>
+                    <p>@magasin.Rue @magasin.Numero</p>
+                    <p>@magasin.CodePostal @magasin.Ville</p>
+                    <p>@magasin.Pays</p>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+}
+else{<h1>Oupsss...</h1>}
