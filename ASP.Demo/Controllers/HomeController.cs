@@ -102,5 +102,16 @@ namespace ASP.Demo.Controllers
             TempData.Remove("colorTheme");
             return RedirectToAction("Index");
         }
+
+        public IActionResult WithCSSCustom()
+        {
+            return View();
+        }
+
+        public IActionResult WithoutCSSCustom()
+        {
+            return View();
+        }
+
     }
 }
