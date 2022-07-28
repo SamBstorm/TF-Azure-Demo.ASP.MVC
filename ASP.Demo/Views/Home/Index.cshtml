@@ -1,8 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    if (TempData.ContainsKey("colorTheme")) Layout = TempData["colorTheme"].ToString();
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a asp-action="SetBlack" asp-controller="Home" class="btn btn-dark">Black theme</a>
+    <a asp-action="SetWhite" asp-controller="Home" class="btn btn-light">White theme</a>
 </div>

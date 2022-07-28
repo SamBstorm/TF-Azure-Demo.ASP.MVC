@@ -15,6 +15,7 @@ namespace ASP.Demo.Controllers
 
         public IActionResult Index()
         {
+            if (TempData.ContainsKey("colorTheme")) TempData.Keep("colorTheme");
             return View();
         }
 
@@ -78,6 +79,28 @@ namespace ASP.Demo.Controllers
             model.magasins[1].Ville = "Bruxelles";
             model.magasins[1].Pays = "Belgique";
             return View(model);
+        }
+
+        public IActionResult convertToHTML ()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult convertToHTML(string text)
+        {
+            object model = text;
+            return View(model);
+        }
+
+        public IActionResult SetBlack()
+        {
+            TempData["colorTheme"] = "_LayoutBlack";
+            return RedirectToAction("Index");
+        }
+        public IActionResult SetWhite()
+        {
+            TempData.Remove("colorTheme");
+            return RedirectToAction("Index");
         }
     }
 }

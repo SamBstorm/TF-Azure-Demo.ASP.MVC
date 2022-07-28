@@ -1,0 +1,16 @@
+﻿@model String
+
+<form method="POST">
+    <textarea name="text"></textarea>
+    <input type="submit" value="convert" />
+</form>
+
+@if(Model != null)
+{
+    <div>
+        @Model
+    </div>
+    <div>
+        @Html.Raw(Model)
+    </div>
+}
