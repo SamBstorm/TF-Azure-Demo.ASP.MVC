@@ -1,3 +1,8 @@
 ﻿@{
-    Layout = "_Layout";
+    if (TempData.ContainsKey("colorTheme"))
+    {
+        TempData.Keep("colorTheme");
+        Layout = TempData["colorTheme"].ToString();
+    }
+    else Layout = "_Layout";
 }
